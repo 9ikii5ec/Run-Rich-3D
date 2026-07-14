@@ -6,7 +6,6 @@ namespace ButchersGames
     {
         [SerializeField] private GameEvents gameEvents;
         [SerializeField] private GameObject[] statusModels;
-        [SerializeField] private Animator animator;
 
         private int _currentModelIndex = -1;
 
@@ -39,11 +38,6 @@ namespace ButchersGames
 
             statusModels[modelIndex].SetActive(true);
             _currentModelIndex = modelIndex;
-
-            if (animator != null)
-            {
-                animator.SetInteger("Status", (int)newStatus);
-            }
         }
     }
 }

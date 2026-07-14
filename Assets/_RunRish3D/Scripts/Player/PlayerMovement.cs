@@ -14,7 +14,6 @@ namespace ButchersGames
         [SerializeField] private float forwardSpeed = 10f;
 
         [Header("Side")]
-        [SerializeField] private float sideSpeed = 7f;
         [SerializeField] private float roadWidth = 3.5f;
 
         private bool _isGameStarted;
