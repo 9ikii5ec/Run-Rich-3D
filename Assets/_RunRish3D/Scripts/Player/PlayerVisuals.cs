@@ -6,6 +6,7 @@ namespace ButchersGames
     {
         [SerializeField] private GameEvents gameEvents;
         [SerializeField] private GameObject[] statusModels;
+        [SerializeField] private AudioClip[] statusSounds;
 
         private int _currentModelIndex = -1;
 
@@ -38,6 +39,11 @@ namespace ButchersGames
 
             statusModels[modelIndex].SetActive(true);
             _currentModelIndex = modelIndex;
+
+            if (statusSounds != null && modelIndex < statusSounds.Length && statusSounds[modelIndex] != null)
+            {
+                AudioSource.PlayClipAtPoint(statusSounds[modelIndex], transform.position);
+            }
         }
     }
 }

@@ -16,19 +16,23 @@ namespace ButchersGames
         [Header("Side")]
         [SerializeField] private float roadWidth = 3.5f;
 
+        [Header("Events")]
+        [SerializeField] private GameEvents gameEvents;
+
         private bool _isGameStarted;
         private bool _isHolding;
         private Vector2 _touchStartPosition;
         private float _sideOffset;
         private float _sideOffsetAtTouchStart;
         private float _splineProgress;
+        private float _distanceTraveled;
 
         private InputAction _pointerPressAction;
         private InputAction _pointerPositionAction;
 
         private void Awake()
         {
-            _pointerPressAction = new InputAction(binding: "<Mouse>/leftButton");
+            _pointerPressAction = new InputAction(binding: "<Pointer>/press");
             _pointerPositionAction = new InputAction(binding: "<Pointer>/position");
 
             _pointerPressAction.performed += ctx => OnPointerDown();
@@ -74,6 +78,7 @@ namespace ButchersGames
                 _touchStartPosition = pos;
                 _isHolding = true;
                 InitSplineProgress();
+                gameEvents?.GameStarted();
                 return;
             }
 
@@ -133,12 +138,16 @@ namespace ButchersGames
         private void MoveForward()
         {
             float splineLength = splineContainer.CalculateLength();
+            float prevProgress = _splineProgress;
             _splineProgress += (forwardSpeed * Time.deltaTime) / splineLength;
 
             if (_splineProgress >= 1f)
             {
                 _splineProgress = 1f;
             }
+
+            _distanceTraveled += (_splineProgress - prevProgress) * splineLength;
+            gameEvents?.DistanceChanged((int)_distanceTraveled);
         }
 
         private void ApplyPosition()

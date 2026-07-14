@@ -5,6 +5,8 @@ namespace ButchersGames
 {
     public class CheckPointTrigger : MonoBehaviour, IInteractable
     {
+        [SerializeField] private AudioClip hitSound;
+
         private bool _isActivated;
         private Animator animator;
 
@@ -18,6 +20,11 @@ namespace ButchersGames
             if (_isActivated) return;
             _isActivated = true;
             animator.SetTrigger("Flag");
+
+            if (hitSound != null)
+            {
+                AudioSource.PlayClipAtPoint(hitSound, transform.position);
+            }
         }
     }
 }

@@ -267,4 +267,4 @@ MonoBehaviour:
   gameEvents: {fileID: 11400000, guid: b5705665408fe5349b12e8eeecdacdc1, type: 2}
   value: 5
   collectEffect: {fileID: 0}
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: 9cb3049916934e546a9174b89ed81beb, type: 3}
