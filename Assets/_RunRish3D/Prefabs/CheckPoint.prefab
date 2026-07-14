@@ -508,8 +508,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 0.446181}
-  m_Center: {x: 0, y: 0, z: -0.2769098}
+  m_Size: {x: 1, y: 2.363677, z: 0.446181}
+  m_Center: {x: 0, y: 0.6818385, z: -0.2769098}
 --- !u!114 &6328463205510417443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,7 +522,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71e5da7fbb6b8504e9daf03a64330df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButchersGames.CheckPointTrigger
-  leftFlag: {fileID: 8617620810709899804}
-  rightFlag: {fileID: 2598264496659240777}
-  duration: 1
-  easeType: 27

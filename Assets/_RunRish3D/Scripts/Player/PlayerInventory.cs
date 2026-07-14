@@ -30,10 +30,16 @@ namespace ButchersGames
             }
         }
 
-        private void Start()
+        private void Awake()
         {
             _currentMoney = startingMoney;
             _currentStatus = statusSettings.GetStatusForMoney(_currentMoney);
+        }
+
+        private void Start()
+        {
+            gameEvents.StatusChanged(_currentStatus);
+            gameEvents.MoneyCountChanged(_currentMoney);
         }
 
         private void HandleMoneyCollected(int amount)

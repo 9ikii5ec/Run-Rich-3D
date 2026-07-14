@@ -157,6 +157,8 @@ namespace ButchersGames
 
             transform.position = splinePos + splineRight * _sideOffset;
             transform.rotation = Quaternion.LookRotation(splineTangent, Vector3.up);
+
+            Physics.SyncTransforms();
         }
 
         public void StopRunning()

@@ -13,12 +13,6 @@ namespace ButchersGames
         {
             gameEvents?.MoneyCollected(penalty);
 
-            Animator animator = player.GetComponentInChildren<Animator>();
-            if (animator != null)
-            {
-                animator.SetTrigger("Stumble");
-            }
-
             if (hitEffect != null)
             {
                 GameObject fx = Instantiate(hitEffect, transform.position, Quaternion.identity);
